@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  db:
+    image: postgres:9.5
+    ports:
+      - "5432:${PORT:-5432}"
+    environment:
+      - POSTGRES_USER=myapp
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=my_app_development
+  rails:
+    image: quay.io/morison/compose_to_minikube:v1
+    ports:
+      - "3000:${PORT:-3000}"
+    environment:
+      - DATABASE_URL=postgres://myapp:password@db:5432/my_app_development
+    depends_on:
+      - db
