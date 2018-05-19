@@ -1,5 +1,4 @@
 # refer
-https://qiita.com/progrhyme/items/116948c9fef37f3e995b
 
 # installation
 
